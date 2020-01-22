@@ -4,8 +4,8 @@
 
 */
 
-
-class Solution {
+//分治策略
+class Solution1 {
   public int crossSum(int[] nums, int left, int right, int p) {
     if (left == right) return nums[left];
 
@@ -42,3 +42,32 @@ class Solution {
     return helper(nums, 0, nums.length - 1);
   }
 }
+
+
+//贪心策略
+class Solution2 {
+  public int maxSubArray(int[] nums) {
+    int n = nums.length;
+    int currSum = nums[0], maxSum = nums[0];
+
+    for(int i = 1; i < n; ++i) {
+      currSum = Math.max(nums[i], currSum + nums[i]);
+      maxSum = Math.max(maxSum, currSum);
+    }
+    return maxSum;
+  }
+}
+
+
+//动态规划
+class Solution3 {
+  public int maxSubArray(int[] nums) {
+    int n = nums.length, maxSum = nums[0];
+    for(int i = 1; i < n; ++i) {
+      if (nums[i - 1] > 0) nums[i] += nums[i - 1];
+      maxSum = Math.max(nums[i], maxSum);
+    }
+    return maxSum;
+  }
+}
+
