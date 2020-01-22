@@ -1,5 +1,4 @@
-算法学习道路不容易
-我们还得加把劲
+
 ============
 # 刷题推荐
 - [leetCode](https://leetcode-cn.com)
